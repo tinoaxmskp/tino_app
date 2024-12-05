@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,18 +7,18 @@
     android:padding="16dp"
     tools:context=".LogInActivity">
 
+    <!-- Welcome Image -->
     <ImageView
         android:id="@+id/welcome"
         android:layout_width="280dp"
         android:layout_height="230dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/L_WelcomeBack"
+        android:contentDescription="@string/welcome_image_description"
         android:src="@drawable/welcome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.616"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Welcome Text -->
     <TextView
         android:id="@+id/getStartedText"
         android:layout_width="wrap_content"
@@ -27,10 +26,12 @@
         android:text="@string/L_WelcomeBack"
         android:textColor="@android:color/black"
         android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/welcome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Subtitle -->
     <TextView
         android:id="@+id/subtitleText"
         android:layout_width="wrap_content"
@@ -42,78 +43,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/passwordInput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:autofillHints="password"
-        android:background="@drawable/rounded_edittext"
-        android:drawableEnd="@drawable/lock"
-        android:drawablePadding="10dp"
-        android:hint="@string/L_EnterPassword"
-        android:inputType="textPassword"
-        android:padding="16dp"
-        android:textColorHint="#616161"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailInput" />
-
+    <!-- Email Input -->
     <EditText
         android:id="@+id/emailInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:autofillHints="emailAddress"
-        android:background="@drawable/rounded_edittext"
-        android:drawableEnd="@drawable/mail"
-        android:drawablePadding="10dp"
         android:hint="@string/L_EnterMail"
         android:inputType="textEmailAddress"
+        android:background="@drawable/rounded_edittext"
         android:padding="16dp"
-        android:textColorHint="#616161"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/subtitleText" />
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/L_EnterPassword"
+        android:inputType="textPassword"
+        android:background="@drawable/rounded_edittext"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailInput" />
+
+    <!-- Remember Me & Forgot Password -->
+    <CheckBox
+        android:id="@+id/termsCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/L_RememberMe"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordInput" />
 
     <TextView
         android:id="@+id/termsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="16dp"
         android:text="@string/L_ForgetPassword"
         android:textColor="#2962FF"
         android:textSize="11sp"
         app:layout_constraintStart_toEndOf="@id/termsCheckbox"
         app:layout_constraintTop_toTopOf="@id/termsCheckbox" />
 
-    <CheckBox
-        android:id="@+id/termsCheckbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/L_RememberMe"
-        android:textSize="11sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordInput" />
-
+    <!-- Next Button -->
     <Button
         android:id="@+id/nextButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
         android:backgroundTint="#6C63FF"
         android:text="@string/R_Next"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/termsCheckbox" />
 
+    <!-- Registration Section -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -134,13 +122,10 @@
             android:id="@+id/registerNowText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
             android:text="@string/L_registerNow"
             android:textColor="#6C63FF"
             android:textSize="14sp"
-            android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

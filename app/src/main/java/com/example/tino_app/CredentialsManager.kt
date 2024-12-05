@@ -1,7 +1,21 @@
 package com.example.tino_app
 
+import java.util.Locale
+import java.util.HashMap
+
 class CredentialsManager {
 
+
+    private val credentials: MutableMap<String, String> = HashMap()
+
+    fun register(email: String, password: String): String {
+        val normalizedEmail = email.lowercase(Locale.getDefault())
+        if (credentials.containsKey(normalizedEmail)) {
+            return "Error: Email is already taken."
+        }
+        credentials[normalizedEmail] = password
+        return "Success: Account registered."
+    }
 
     fun isEmailValid(email: String): Boolean {
         if (email.isEmpty()) return false
