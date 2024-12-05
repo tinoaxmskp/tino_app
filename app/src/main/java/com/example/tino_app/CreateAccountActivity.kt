@@ -7,6 +7,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.tino_app.R.id.errorTextView
 
 class CreateAccountActivity : AppCompatActivity() {
 
@@ -41,7 +42,7 @@ class CreateAccountActivity : AppCompatActivity() {
                 finish()  //  finish CreateAccountActivity to prevent returning back to it
             } else {
                 // Show error message
-                val errorTextView = findViewById<TextView>(R.id.errorTextView)
+                val errorTextView = findViewById<TextView>(errorTextView)
                 errorTextView.text = registrationResult
             }
         }
