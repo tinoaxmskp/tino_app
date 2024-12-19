@@ -3,7 +3,6 @@ package com.example.tino_app
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -38,7 +37,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
             if (registrationResult.startsWith("Success")) {
                 // Registration successful, go back to login screen
-                startActivity(Intent(this, LogInActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
                 finish()  //  finish CreateAccountActivity to prevent returning back to it
             } else {
                 // Show error message
@@ -49,7 +48,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
         loginButton.setOnClickListener {
             // Redirect to the Login screen
-            startActivity(Intent(this, LogInActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }

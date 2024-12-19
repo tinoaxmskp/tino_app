@@ -21,5 +21,7 @@
     <string name="L_registerNow"> Register now</string>
     <string name="welcome_image_description" />
     <string name="error_message">Error message</string>
+    <string name="welcome_to_mainactivity">Welcome to MainActivity</string>
+
 
 </resources>
