@@ -1,29 +1,46 @@
+// CredentialsManager.kt
 package com.example.tino_app
-
-import java.util.Locale
-import java.util.HashMap
 
 class CredentialsManager {
 
+    private val accounts = mutableMapOf<String, String>()
 
-    private val credentials: MutableMap<String, String> = HashMap()
+    init {
+        // Adding a default account for testing
+        accounts["test@te.st"] = "1234"
+    }
 
-    fun register(email: String, password: String): String {
-        val normalizedEmail = email.lowercase(Locale.getDefault())
-        if (credentials.containsKey(normalizedEmail)) {
-            return "Error: Email is already taken."
-        }
-        credentials[normalizedEmail] = password
-        return "Success: Account registered."
+    enum class LoginResult {
+        SUCCESS,
+        EMPTY_EMAIL,
+        INVALID_EMAIL_FORMAT,
+        INVALID_EMAIL,
+        EMPTY_PASSWORD,
+        INVALID_PASSWORD
+    }
+
+    fun login(email: String, password: String): LoginResult {
+        if (email.isEmpty()) return LoginResult.EMPTY_EMAIL
+        if (!isEmailValid(email)) return LoginResult.INVALID_EMAIL_FORMAT
+        if (!accounts.containsKey(email.lowercase())) return LoginResult.INVALID_EMAIL
+        if (password.isEmpty()) return LoginResult.EMPTY_PASSWORD
+        if (accounts[email.lowercase()] != password) return LoginResult.INVALID_PASSWORD
+
+        return LoginResult.SUCCESS
+    }
+
+    fun register(email: String, password: String): Boolean {
+        if (accounts.containsKey(email.lowercase())) return false
+        accounts[email.lowercase()] = password
+        return true
     }
 
     fun isEmailValid(email: String): Boolean {
-        if (email.isEmpty()) return false
-        val emailRegex = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")
-        return emailRegex.matches(email)
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     fun isPasswordValid(password: String): Boolean {
-        return password.isNotEmpty()
+        // Example password validation: Minimum 6 characters
+        return password.length >= 8
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="registerNowText" type="id" />
+    <item name="registerButton" type="id" />
+    <item name="loggingButton" type="id" />
     <item name="errorTextView" type="id" />
     <item name="emailInputLayout" type="id" />
     <item name="emailEditText" type="id" />

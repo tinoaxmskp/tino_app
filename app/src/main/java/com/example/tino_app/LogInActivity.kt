@@ -4,6 +4,7 @@ package com.example.tino_app
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -18,13 +19,16 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
 
-        val emailInputLayout = findViewById<TextInputLayout>(R.id.emailInputLayout)
-        val passwordInputLayout = findViewById<TextInputLayout>(R.id.passwordInputLayout)
-        val emailEditText = findViewById<TextInputEditText>(R.id.emailEditText)
-        val passwordEditText = findViewById<TextInputEditText>(R.id.passwordEditText)
-        val nextButton = findViewById<Button>(R.id.nextButton)
+        // View Bindings
+        val emailInputLayout by lazy { findViewById<TextInputLayout>(R.id.emailInputLayout) }
+        val passwordInputLayout by lazy { findViewById<TextInputLayout>(R.id.passwordInputLayout) }
+        val emailEditText by lazy { findViewById<TextInputEditText>(R.id.emailEditText) }
+        val passwordEditText by lazy { findViewById<TextInputEditText>(R.id.passwordEditText)}
+        val loggingButton = findViewById<Button>(R.id.loggingButton)
+        val registerNowText by lazy { findViewById<TextView>(R.id.registerButton) }
 
-        nextButton.setOnClickListener {
+
+        loggingButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString()
 
@@ -59,9 +63,16 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             }
         }
-    }
 
-    private fun isValidEmail(email: String): Boolean {
+
+    // Register Now Button Listener
+    registerNowText.setOnClickListener {
+        val intent = Intent(this, CreateAccountActivity::class.java)
+        startActivity(intent)
+    }
+}
+
+private fun isValidEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }

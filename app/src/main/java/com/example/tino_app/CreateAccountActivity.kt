@@ -2,54 +2,54 @@ package com.example.tino_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tino_app.R.id.errorTextView
 
 class CreateAccountActivity : AppCompatActivity() {
 
-    private lateinit var emailInput: EditText
-    private lateinit var passwordInput: EditText
-    private lateinit var credentialsManager: CredentialsManager
-    private lateinit var registerButton: Button
-    private lateinit var alreadyMemberText: TextView
-    private lateinit var loginButton: TextView
+    private val credentialsManager = CredentialsManager()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
 
-        credentialsManager = CredentialsManager()
+        // Verify all IDs match the layout file
+        val emailInputLayout by lazy { findViewById<TextInputLayout>(R.id.emailInputLayout) }
+        val passwordInputLayout by lazy { findViewById<TextInputLayout>(R.id.passwordInputLayout) }
+        val emailEditText by lazy { findViewById<TextInputEditText>(R.id.emailEditText) }
+        val passwordEditText by lazy { findViewById<TextInputEditText>(R.id.passwordEditText)}
+        val nextButton by lazy { findViewById<Button>(R.id.nextButton) }
 
-        emailInput = findViewById(R.id.emailInput)
-        passwordInput = findViewById(R.id.passwordInput)
-        registerButton = findViewById(R.id.nextButton)
-        alreadyMemberText = findViewById(R.id.alreadyMemberText)
-        loginButton = findViewById(R.id.loginButton)
 
-        registerButton.setOnClickListener {
-            val email = emailInput.text.toString()
-            val password = passwordInput.text.toString()
-
-            val registrationResult = credentialsManager.register(email, password)
-
-            if (registrationResult.startsWith("Success")) {
-                // Registration successful, go back to login screen
-                startActivity(Intent(this, LoginActivity::class.java))
-                finish()  //  finish CreateAccountActivity to prevent returning back to it
+        nextButton?.setOnClickListener {
+            val email = emailEditText.text.toString().trim()
+            val password = passwordEditText.text.toString()
+            if (email.isEmpty()) {
+                emailInputLayout.error = "Email cannot be empty"
+                return@setOnClickListener
             } else {
-                // Show error message
-                val errorTextView = findViewById<TextView>(errorTextView)
-                errorTextView.text = registrationResult
+                if (password.isEmpty()) {
+                    passwordInputLayout.error = "Password cannot be empty"
+                    return@setOnClickListener
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    emailInputLayout.error = "Invalid email format"
+                    return@setOnClickListener
+                }
             }
-        }
-
-        loginButton.setOnClickListener {
-            // Redirect to the Login screen
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+            // Attempt registration
+            val registrationResult = credentialsManager.register(email ?: "", password ?: "")
+            if (registrationResult) {
+                // Successful registration
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            } else {
+                // Email already exists
+                emailInputLayout?.error = "Email is already registered"
+            }
         }
     }
 }

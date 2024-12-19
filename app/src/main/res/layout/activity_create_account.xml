@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@id/subtitleText" />
 
     <EditText
-        android:id="@+id/emailInput"
+        android:id="@+id/emailInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -89,10 +89,10 @@
         android:textColorHint="#616161"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailInput" />
+        app:layout_constraintTop_toBottomOf="@id/emailInputLayout" />
 
     <EditText
-        android:id="@+id/passwordInput"
+        android:id="@+id/passwordInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -115,10 +115,9 @@
         android:text="@string/R_CheckBox"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordInput" />
+        app:layout_constraintTop_toBottomOf="@id/passwordInputLayout" />
 
     <TextView
-        android:id="@+id/termsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -151,7 +150,6 @@
         app:layout_constraintTop_toBottomOf="@id/nextButton">
 
         <TextView
-            android:id="@+id/alreadyMemberText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/R_AlreadyMem"
@@ -159,7 +157,6 @@
             android:textSize="14sp"
             android:textStyle="bold" />
         <TextView
-            android:id="@+id/errorTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/error_message"
@@ -167,7 +164,6 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/loginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
