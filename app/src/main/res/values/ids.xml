@@ -2,7 +2,6 @@
 <resources>
     <item name="registerButton" type="id" />
     <item name="loggingButton" type="id" />
-    <item name="errorTextView" type="id" />
     <item name="emailInputLayout" type="id" />
     <item name="emailEditText" type="id" />
     <item name="passwordInputLayout" type="id" />

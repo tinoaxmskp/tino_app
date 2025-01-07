@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
-import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -41,7 +40,7 @@ class CreateAccountActivity : AppCompatActivity() {
                 }
             }
             // Attempt registration
-            val registrationResult = credentialsManager.register(email ?: "", password ?: "")
+            val registrationResult = credentialsManager.register(email , password)
             if (registrationResult) {
                 // Successful registration
                 startActivity(Intent(this, LoginActivity::class.java))

@@ -22,6 +22,7 @@
     <string name="welcome_image_description" />
     <string name="error_message">Error message</string>
     <string name="login">Login</string>
+    <string name="welcome_to_main_activity">WELCOME TO THE APP</string>
 
 
 </resources>
