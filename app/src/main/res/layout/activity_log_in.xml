@@ -118,9 +118,9 @@
         android:text="@string/L_NewMember"
         android:textColor="@android:color/black"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="537dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="592dp" />
 
     <TextView
         android:id="@+id/registerButton"
@@ -130,7 +130,7 @@
         android:textColor="#6C63FF"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="184dp"
-        tools:layout_editor_absoluteY="540dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="277dp"
+        tools:layout_editor_absoluteY="588dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
