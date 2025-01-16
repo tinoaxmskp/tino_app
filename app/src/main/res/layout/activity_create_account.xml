@@ -27,9 +27,9 @@
         android:text="@string/get_started"
         android:textColor="@android:color/black"
         android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/welcome"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/welcome" />
 
     <TextView
         android:id="@+id/subtitleText"
@@ -39,9 +39,9 @@
         android:text="@string/R_CreatingFreeAcc"
         android:textColor="#757575"
         android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/getStartedText"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/getStartedText" />
 
     <EditText
         android:id="@+id/fullNameInput"
@@ -55,8 +55,8 @@
         android:inputType="textPersonName"
         android:padding="16dp"
         android:textColorHint="#616161"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/subtitleText" />
 
     <EditText
@@ -71,8 +71,8 @@
         android:inputType="textEmailAddress"
         android:padding="16dp"
         android:textColorHint="#616161"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fullNameInput" />
 
     <EditText
@@ -87,8 +87,8 @@
         android:inputType="phone"
         android:padding="16dp"
         android:textColorHint="#616161"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailInputLayout" />
 
     <EditText
@@ -103,8 +103,8 @@
         android:inputType="textPassword"
         android:padding="16dp"
         android:textColorHint="#616161"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/phoneInput" />
 
     <CheckBox
@@ -130,14 +130,16 @@
 
     <Button
         android:id="@+id/nextButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="150dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#6C63FF"
         android:text="@string/R_Next"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/termsCheckbox" />
 
     <LinearLayout
@@ -145,17 +147,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nextButton">
 
-        <TextView
-            android:layout_width="104dp"
-            android:layout_height="match_parent"
-            android:text="@string/R_AlreadyMem"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -163,18 +158,23 @@
             android:textColor="@android:color/holo_red_light"
             android:visibility="gone" />
 
-        <Button
-            android:id="@+id/loggingButton"
-            android:layout_width="83dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="@string/R_LogInButton"
-            android:textColor="#6C63FF"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck" />
+
     </LinearLayout>
 
+    <Button
+        android:id="@+id/loggingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#6C63FF"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/R_LogInButton"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

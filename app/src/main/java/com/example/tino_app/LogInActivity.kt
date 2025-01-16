@@ -5,9 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import androidx.appcompat.app.AppCompatActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -23,12 +23,12 @@ class LoginActivity : AppCompatActivity() {
         val emailInputLayout by lazy { findViewById<TextInputLayout>(R.id.emailInputLayout) }
         val passwordInputLayout by lazy { findViewById<TextInputLayout>(R.id.passwordInputLayout) }
         val emailEditText by lazy { findViewById<TextInputEditText>(R.id.emailEditText) }
-        val passwordEditText by lazy { findViewById<TextInputEditText>(R.id.passwordEditText)}
-        val loggingButton = findViewById<Button>(R.id.loggingButton)
+        val passwordEditText by lazy { findViewById<TextInputEditText>(R.id.passwordEditText) }
+        val loginButton = findViewById<Button>(R.id.loginButton)
         val registerNowText by lazy { findViewById<TextView>(R.id.registerButton) }
 
 
-        loggingButton.setOnClickListener {
+        loginButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString()
 
@@ -36,12 +36,15 @@ class LoginActivity : AppCompatActivity() {
                 email.isEmpty() -> {
                     emailInputLayout.error = "Email cannot be empty"
                 }
+
                 !isValidEmail(email) -> {
                     emailInputLayout.error = "Invalid email format"
                 }
+
                 email.equals(validEmail, ignoreCase = true).not() -> {
                     emailInputLayout.error = "Email does not exist"
                 }
+
                 else -> emailInputLayout.error = null
             }
 
@@ -49,30 +52,32 @@ class LoginActivity : AppCompatActivity() {
                 password.isEmpty() -> {
                     passwordInputLayout.error = "Password cannot be empty"
                 }
+
                 password != validPassword -> {
                     passwordInputLayout.error = "Incorrect password"
                 }
+
                 else -> passwordInputLayout.error = null
             }
 
             if (email.equals(validEmail, ignoreCase = true) && password == validPassword) {
                 emailInputLayout.error = null
                 passwordInputLayout.error = null
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 finish()
             }
         }
 
 
-    // Register Now Button Listener
-    registerNowText.setOnClickListener {
-        val intent = Intent(this, CreateAccountActivity::class.java)
-        startActivity(intent)
+        // Register Now Button Listener
+        registerNowText.setOnClickListener {
+            val intent = Intent(this, CreateAccountActivity::class.java)
+            startActivity(intent)
+        }
     }
-}
 
-private fun isValidEmail(email: String): Boolean {
+    private fun isValidEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }

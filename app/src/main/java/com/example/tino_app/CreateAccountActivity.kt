@@ -25,9 +25,9 @@ class CreateAccountActivity : AppCompatActivity() {
         val emailInputLayout by lazy { findViewById<TextInputLayout>(R.id.emailInputLayout) }
         val passwordInputLayout by lazy { findViewById<TextInputLayout>(R.id.passwordInputLayout) }
         val emailEditText by lazy { findViewById<TextInputEditText>(R.id.emailEditText) }
-        val passwordEditText by lazy { findViewById<TextInputEditText>(R.id.passwordEditText)}
-        val nextButton by lazy { findViewById<Button>(R.id.nextButton)}
-        val loggingButton by lazy { findViewById<Button>(R.id.loggingButton)}
+        val passwordEditText by lazy { findViewById<TextInputEditText>(R.id.passwordEditText) }
+        val nextButton by lazy { findViewById<Button>(R.id.nextButton) }
+        val loggingButton by lazy { findViewById<Button>(R.id.loggingButton) }
 
 
         nextButton?.setOnClickListener {
@@ -70,9 +70,8 @@ class CreateAccountActivity : AppCompatActivity() {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             }
-
             // Attempt registration
-            val registrationResult = credentialsManager.register(email , password)
+            val registrationResult = credentialsManager.register(email, password)
             if (registrationResult) {
                 // Successful registration
                 startActivity(Intent(this, LoginActivity::class.java))

@@ -6,4 +6,8 @@
     <item name="emailEditText" type="id" />
     <item name="passwordInputLayout" type="id" />
     <item name="passwordEditText" type="id" />
+    <item name="btnPricing" type="id" />
+    <item name="navigationBar" type="id" />
+    <item name="main" type="id" />
+    <item name="mainImage" type="id" />
 </resources>
