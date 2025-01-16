@@ -42,22 +42,11 @@
             android:text="@string/about_us"
             android:textColor="#000000" />
 
-        <!-- Blog Button -->
-        <Button
-            android:id="@+id/Blog"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:backgroundTint="@android:color/transparent"
-            android:text="@string/blog"
-            android:textColor="#000000" />
-
         <!-- Pricing Button -->
         <Button
             android:id="@+id/btnPricing"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:backgroundTint="@android:color/transparent"
