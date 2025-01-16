@@ -1,19 +1,38 @@
 // CredentialsManager.kt
 package com.example.tino_app
 
-class CredentialsManager {
+import android.content.Context
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-    private val accounts = mutableMapOf<String, String>()
+class CredentialsManager(private val context: Context) {
 
-    init {
-        // Adding a default account for testing
-        accounts["test@te.st"] = "1234"
+    // Initialize UserDao with context
+    val database = UserDatabase.getDatabase(context)
+    private val userDao = database.userDao()
+   // private val userDao: UserDao by lazy {
+   //     UserDatabase.getDatabase(context).userDao()
+   // }
+
+    suspend fun register(email: String, password: String): Boolean {
+        return withContext(Dispatchers.IO) {
+            val existingUser = userDao.getUserByEmail(email.lowercase())
+            if (existingUser == null) {
+                userDao.insertUser(
+                    User(email = email.lowercase(), password = password)
+                )
+                true
+            } else {
+                false
+            }
+        }
     }
 
-    fun register(email: String, password: String): Boolean {
-        if (accounts.containsKey(email.lowercase())) return false
-        accounts[email.lowercase()] = password
-        return true
+    suspend fun login(email: String, password: String): Boolean {
+        return withContext(Dispatchers.IO) {
+            val user = userDao.getUserByEmail(email.lowercase())
+            user?.password == password
+        }
     }
 
     fun isEmailValid(email: String): Boolean {
@@ -21,7 +40,7 @@ class CredentialsManager {
     }
 
     fun isPasswordValid(password: String): Boolean {
-        // Example password validation: Minimum 6 characters
         return password.length >= 8
     }
 }
+

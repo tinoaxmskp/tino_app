@@ -21,12 +21,12 @@
     <string name="welcome_image_description" />
     <string name="error_message">Error message</string>
     <string name="login">Login</string>
-    <string name="welcome_to_main_activity">WELCOME TO THE APP</string>
-    <string name="blog">Blog</string>
     <string name="about_us">About Us</string>
     <string name="pricing">Pricing</string>
     <string name="home">Home</string>
     <string name="cyclist_illustration">Cyclist Illustration</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="fragmenta">FragmentA</string>
 
 
 </resources>

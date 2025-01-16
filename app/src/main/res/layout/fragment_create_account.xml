@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".CreateAccountActivity">
+    android:padding="16dp">
 
     <ImageView
         android:id="@+id/welcome"
@@ -37,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="@string/R_CreatingFreeAcc"
-        android:textColor="#757575"
+        android:textColor="#000000"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,8 +44,8 @@
 
     <EditText
         android:id="@+id/fullNameInput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="340dp"
+        android:layout_height="54dp"
         android:layout_marginTop="16dp"
         android:autofillHints="name"
         android:background="@drawable/rounded_edittext"
@@ -61,8 +60,8 @@
 
     <EditText
         android:id="@+id/emailInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="340dp"
+        android:layout_height="54dp"
         android:layout_marginTop="8dp"
         android:autofillHints="string"
         android:background="@drawable/rounded_edittext"
@@ -77,8 +76,8 @@
 
     <EditText
         android:id="@+id/phoneInput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="340dp"
+        android:layout_height="54dp"
         android:layout_marginTop="8dp"
         android:autofillHints="phone"
         android:background="@drawable/rounded_edittext"
@@ -93,8 +92,8 @@
 
     <EditText
         android:id="@+id/passwordInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="340dp"
+        android:layout_height="54dp"
         android:layout_marginTop="8dp"
         android:autofillHints="password"
         android:background="@drawable/rounded_edittext"
@@ -131,11 +130,12 @@
     <Button
         android:id="@+id/nextButton"
         android:layout_width="150dp"
-        android:layout_height="41dp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#6C63FF"
         android:text="@string/R_Next"
         android:textColor="#000000"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -162,9 +162,8 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/loggingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#6C63FF"
         android:clickable="true"
@@ -177,4 +176,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

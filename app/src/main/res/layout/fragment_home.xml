@@ -1,11 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FA"
-    tools:context=".HomeActivity">
+    android:background="#F8F9FA">
 
     <!-- Navigation Bar -->
     <LinearLayout
@@ -22,7 +20,6 @@
 
         <!-- Home Button -->
         <Button
-            android:id="@+id/Home"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +30,6 @@
 
         <!-- About Us Button -->
         <Button
-            android:id="@+id/AboutUs"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,22 +38,10 @@
             android:text="@string/about_us"
             android:textColor="#000000" />
 
-        <!-- Blog Button -->
-        <Button
-            android:id="@+id/Blog"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:backgroundTint="@android:color/transparent"
-            android:text="@string/blog"
-            android:textColor="#000000" />
-
         <!-- Pricing Button -->
         <Button
-            android:id="@+id/btnPricing"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:backgroundTint="@android:color/transparent"
@@ -67,7 +51,6 @@
 
     <!-- Center Image -->
     <ImageView
-        android:id="@+id/mainImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="@string/cyclist_illustration"
@@ -78,4 +61,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="20dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

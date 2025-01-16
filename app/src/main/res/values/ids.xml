@@ -2,6 +2,7 @@
 <resources>
     <item name="registerButton" type="id" />
     <item name="loggingButton" type="id" />
+    <item name="loginButton" type="id" />
     <item name="emailInputLayout" type="id" />
     <item name="emailEditText" type="id" />
     <item name="passwordInputLayout" type="id" />
@@ -10,4 +11,7 @@
     <item name="navigationBar" type="id" />
     <item name="main" type="id" />
     <item name="mainImage" type="id" />
+    <item name="action_createAccountFragment_to_loginFragment" type="id" />
+    <item name="homeFragment" type="id" />
+    <item name="createAccountFragment" type="id" />
 </resources>
