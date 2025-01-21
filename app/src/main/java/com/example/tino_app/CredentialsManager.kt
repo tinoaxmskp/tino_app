@@ -8,7 +8,7 @@ import kotlinx.coroutines.withContext
 class CredentialsManager(private val context: Context) {
 
     // Initialize UserDao with context
-    val database = UserDatabase.getDatabase(context)
+    private val database = UserDatabase.getDatabase(context)
     private val userDao = database.userDao()
    // private val userDao: UserDao by lazy {
    //     UserDatabase.getDatabase(context).userDao()

@@ -5,61 +5,28 @@
     android:layout_height="match_parent"
     android:background="#F8F9FA">
 
-    <!-- Navigation Bar -->
-    <LinearLayout
-        android:id="@+id/navigationBar"
-        android:layout_width="0dp"
+    <!-- Heading TextView -->
+    <TextView
+        android:id="@+id/tvHeading"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/pick_your_favourite"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Home Button -->
-        <Button
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:backgroundTint="@android:color/transparent"
-            android:text="@string/home"
-            android:textColor="#000000" />
-
-        <!-- About Us Button -->
-        <Button
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:backgroundTint="@android:color/transparent"
-            android:text="@string/about_us"
-            android:textColor="#000000" />
-
-        <!-- Pricing Button -->
-        <Button
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:backgroundTint="@android:color/transparent"
-            android:text="@string/pricing"
-            android:textColor="#000000" />
-    </LinearLayout>
-
-    <!-- Center Image -->
-    <ImageView
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRecipes"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/cyclist_illustration"
-        android:src="@drawable/homebck"
-        android:scaleType="fitCenter"
-        app:layout_constraintTop_toBottomOf="@id/navigationBar"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvHeading"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

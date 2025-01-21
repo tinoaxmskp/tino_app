@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
 
 class CreateAccountFragment : Fragment() {
@@ -35,9 +35,9 @@ class CreateAccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // View Bindings
-        val fullnameEditText = view.findViewById<TextInputEditText>(R.id.fullNameInput)
-        val emailEditText = view.findViewById<TextInputEditText>(R.id.emailInputLayout)
-        val passwordEditText = view.findViewById<TextInputEditText>(R.id.passwordInputLayout)
+        val fullnameEditText = view.findViewById<EditText>(R.id.fullNameInput)
+        val emailEditText = view.findViewById<EditText>(R.id.emailInputLayout)
+        val passwordEditText = view.findViewById<EditText>(R.id.passwordInputLayout)
         val nextButton = view.findViewById<Button>(R.id.nextButton)
 
         // Next button logic

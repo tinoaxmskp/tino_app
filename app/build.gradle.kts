@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room.gradle.plugin)
 }
 
 android {
@@ -35,21 +37,26 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    room{
+        schemaDirectory("$projectDir/schemas")
+    }
 }
 
+
 dependencies {
-    implementation(libs.androidx.room.common)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.fragment.ktx)
+    implementation (libs.androidx.recyclerview.v131)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.room.common.jvm)
-    implementation(libs.androidx.room.runtime.android)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.core.ktx)
