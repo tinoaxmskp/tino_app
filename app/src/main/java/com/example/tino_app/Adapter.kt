@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 data class Recipe(val name: String, val description: String, val thumbnail: Int)
-class RecipeAdapter(private val recipes: List<Recipe>) :
+class RecipeAdapter(private var recipes: List<Recipe>) :
     RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
     class RecipeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -42,4 +42,12 @@ class RecipeAdapter(private val recipes: List<Recipe>) :
     }
 
     override fun getItemCount(): Int = recipes.size
+
+    fun updateData(newRecipes: List<Recipe>) {
+        if (newRecipes != recipes) {
+            recipes = newRecipes
+            notifyDataSetChanged()
+        }
+    }
+
 }
